@@ -190,9 +190,27 @@ export const themeSettings = (mode) => {
         fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
         fontSize: 14,
       },
-      
-      
-      
     },
   };
+};
+
+// Contexto dos modos de cor, permite mudar a como função
+
+export const ColorModeContext = createContext({
+  toggleColorMode: () => {},
+});
+
+export const useMode = () => {
+  const [mode, setMode] = useState("dark");
+
+  const colorMode = useMemo(() => ({
+    toggleColorMode: () =>
+      setMode((prev) => (prev === "light" ? "dark" : "light")),
+  }),
+  []
+  );
+
+  const theme = useMemo (()=> createTheme(themeSettings(mode)),[mode])
+
+  return [theme, colorMode]
 };
