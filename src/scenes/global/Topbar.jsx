@@ -19,10 +19,10 @@ const Topbar = () => {
       {/*Barra de pesquisa */}
       <Box
         display="flex"
-        backgroudColor={colors.primary[400]}
+        backgroundColor={colors.primary[400]}
         borderRadius="3px"
       >
-        <InputBase sx={{ ml: 2, flex: 1,border:1, borderRadius: 2, p:0.5  }} placeholder="Buscar"  />
+        <InputBase sx={{ ml: 2, flex: 1 }} placeholder="Buscar"  />
         <IconButton type="button" sx={{ p: 1 }}>
           <SearchIcon />
         </IconButton>
