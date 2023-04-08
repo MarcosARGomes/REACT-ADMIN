@@ -7,7 +7,7 @@ import { Box, IconButton, Typography, useTheme } from "@mui/material";
 import { Link } from "react-router-dom";
 import { tokens } from "../../theme";
 
-import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
+import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import PeopleIcon from "@mui/icons-material/People";
 import ContactsIcon from "@mui/icons-material/Contacts";
 import ReceiptIcon from "@mui/icons-material/Receipt";
@@ -22,10 +22,11 @@ import MapIcon from "@mui/icons-material/Map";
 import Help from "@mui/icons-material/Help";
 import Map from "@mui/icons-material/Map";
 
+/* Componente do Item, colocar em um arquivo separado ? */
 const Item = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
-  
+
   return (
     <MenuItem
       active={selected === title}
@@ -34,7 +35,7 @@ const Item = ({ title, to, icon, selected, setSelected }) => {
       icon={icon}
     >
       <Typography>{title}</Typography>
-      <Link to={to}/>
+      <Link to={to} />
     </MenuItem>
   );
 };
@@ -52,7 +53,7 @@ const Sidebar = () => {
           background: `${colors.primary[400]} !important`,
         },
         "& .pro-icon-wrapper": {
-          backgroundColor: "trasparent !important",
+          backgroundColor: "transparent !important",
         },
         "& .pro-inner-item": {
           padding: "5px 35px 5px 20px !important",
@@ -121,86 +122,107 @@ const Sidebar = () => {
               </Box>
             </Box>
           )}
-
+          {/* Itens do Menu */}
           <Box paddingLeft={isCollapsed ? undefined : "10%"}>
             <Item
               title="Dashboard"
               to="/"
-              icon={<HomeOutlinedIcon/>}
+              icon={<HomeOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />
+            <Typography
+              variant="h6"
+              color={colors.grey[300]}
+              sx={{ m: "15px 0 5px 20px" }}
+            >
+              Dados
+            </Typography>
             <Item
               title="Manage Team"
               to="/team"
-              icon={<PeopleIcon/>}
+              icon={<PeopleIcon />}
               selected={selected}
               setSelected={setSelected}
             />
             <Item
               title="Contacts Information"
               to="/contacts"
-              icon={<ContactsIcon/>}
+              icon={<ContactsIcon />}
               selected={selected}
               setSelected={setSelected}
             />
             <Item
               title="Invoices Balances"
               to="/invoices"
-              icon={<ReceiptIcon/>}
+              icon={<ReceiptIcon />}
               selected={selected}
               setSelected={setSelected}
             />
+
+            <Typography
+              variant="h6"
+              color={colors.grey[300]}
+              sx={{ m: "15px 0 5px 20px" }}
+            >
+              Paginas
+            </Typography>
             <Item
               title="Profile Form"
               to="/form"
-              icon={<PersonIcon/>}
+              icon={<PersonIcon />}
               selected={selected}
               setSelected={setSelected}
             />
             <Item
               title="Calendar"
               to="/calendar"
-              icon={<CalendarTodayIcon/>}
+              icon={<CalendarTodayIcon />}
               selected={selected}
               setSelected={setSelected}
             />
             <Item
               title="FAQ Page"
               to="/faq"
-              icon={<Help/>}
+              icon={<Help />}
               selected={selected}
               setSelected={setSelected}
             />
+            <Typography
+              variant="h6"
+              color={colors.grey[300]}
+              sx={{ m: "15px 0 5px 20px" }}
+            >
+              Graficos
+            </Typography>
             <Item
               title="Bar Chart"
               to="/bar"
-              icon={<BarChartIcon/>}
+              icon={<BarChartIcon />}
               selected={selected}
               setSelected={setSelected}
             />
             <Item
               title="Pie Chart"
               to="/pie"
-              icon={<PieChartIcon/>}
+              icon={<PieChartIcon />}
               selected={selected}
               setSelected={setSelected}
             />
-             <Item
+            <Item
               title="Line Chart"
               to="/line"
-              icon={<TimelineIcon/>}
+              icon={<TimelineIcon />}
               selected={selected}
               setSelected={setSelected}
             />
-             <Item
+            <Item
               title="Geography Chart"
               to="/geography"
-              icon={<Map/>}
+              icon={<Map />}
               selected={selected}
               setSelected={setSelected}
             />
-
           </Box>
         </Menu>
       </ProSidebar>
